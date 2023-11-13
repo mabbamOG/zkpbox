@@ -1,5 +1,5 @@
 # zkpbox
-A sandbox for Zero Knowledge proofs and their applications, written from scratch in pure Rust.
+A sandbox for Zero Knowledge proofs and their applications, written from scratch in pure stable Rust with no `unsafe`.
 
 OBJECTIVES:
 1. MODULARITY: For an economy to enable decentralised research and development, the average tinkerer needs to be able to easily modify the end products to integrate his desired functionality. A cornerstone for this objective is to build products whose internal components are modular, such that they can be easily swapped out for a modified homemade version. This is the first necdessary objective for enabling decentralised development.
