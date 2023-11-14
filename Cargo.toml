@@ -1,0 +1,9 @@
+[package]
+name = "zkpbox" 
+version = "0.1.0" 
+authors = ["Mario A. Barbara <@mabbamOG>"]
+edition = '2021'
+description = "A sandbox for Zero Knowledge proofs and their applications, written from scratch in pure stable Rust with no unsafe."
+readme = "README.md"
+repository = "https://github.com/mabbamOG/zkpbox/"
+keywords = ["zkp", "zero-knowledge", "SNARK", "STARK", "cryptography"]
