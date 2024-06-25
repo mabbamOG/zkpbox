@@ -4,12 +4,15 @@ struct U256(u128, u128);
 
 impl From<&str> for U256 {
     fn from(s: &str) -> Self {
-        const NUMBERS: [char;10] = ['0','1','2','3','4','5','6','7','8','9'];
+        const NUMBERS: [char; 10] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         let (mut t0, mut t1) = (None, None);
         let mut tmp: u128 = 0;
         let mut multiplier: u128 = 1;
         for c in s.chars().rev() {
-            assert!(NUMBERS.contains(&c), "U256::from: one of the characters is not a number!");
+            assert!(
+                NUMBERS.contains(&c),
+                "U256::from: one of the characters is not a number!"
+            );
             let n = match (c as u128 - '0' as u128).checked_mul(multiplier) {
                 Some(v) => v,
                 None => {
@@ -17,7 +20,7 @@ impl From<&str> for U256 {
                         (None, None) => t0 = Some(tmp),
                         (None, Some(_)) => t1 = Some(tmp),
                         (Some(_), Some(_)) => break,
-                        (Some(_), None) => panic!()
+                        (Some(_), None) => panic!(),
                     };
                     tmp = c as u128 - '0' as u128;
                     multiplier = 10;
@@ -31,7 +34,7 @@ impl From<&str> for U256 {
                         (None, None) => t0 = Some(tmp),
                         (None, Some(_)) => t1 = Some(tmp),
                         (Some(_), Some(_)) => break,
-                        (Some(_), None) => panic!()
+                        (Some(_), None) => panic!(),
                     };
                     tmp = c as u128 - '0' as u128;
                     multiplier = 10;
@@ -45,7 +48,7 @@ impl From<&str> for U256 {
                         (None, None) => t0 = Some(tmp),
                         (None, Some(_)) => t1 = Some(tmp),
                         (Some(_), Some(_)) => break,
-                        (Some(_), None) => panic!()
+                        (Some(_), None) => panic!(),
                     };
                     tmp = 0;
                     multiplier = 1;
@@ -54,10 +57,10 @@ impl From<&str> for U256 {
             };
         }
         match (t1, t0) {
-            (Some(v1), Some(v0)) => U256(v1,v0),
+            (Some(v1), Some(v0)) => U256(v1, v0),
             (None, Some(v0)) => U256(tmp, v0),
             (None, None) => U256(0, tmp),
-            (Some(_), None) => panic!()
+            (Some(_), None) => panic!(),
         }
     }
 }
@@ -70,7 +73,6 @@ impl std::fmt::Display for U256 {
         write!(f, "{s}")
     }
 }
-
 
 fn main() {
     let a = "1234";

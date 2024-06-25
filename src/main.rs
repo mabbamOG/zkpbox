@@ -6,6 +6,7 @@ mod field;
 // 2. univariate interpolation & evaluation over prime fields
 mod poly;
 // 3. merkle tree commitments
+mod stark;
 
 fn main() {
 
